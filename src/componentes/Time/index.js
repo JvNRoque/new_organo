@@ -1,7 +1,7 @@
 import Colaborador from '../Colaborador'
 import './time.css'
 
-const Time = ({ time, colaboradores, aoDeletar }) => {
+const Time = ({ time, colaboradores, aoDeletar, mudaCor }) => {
     // desestruturação dos parametros recebidos
     return (
 
@@ -9,7 +9,8 @@ const Time = ({ time, colaboradores, aoDeletar }) => {
             <input
                 type='color'
                 className='input-cor'
-                value={time.corSecundaria}    
+                value={time.corSecundaria}
+                onChange={(event) => mudaCor(event.target.value, time.nome)}
             />
             <h3 style={{ borderColor: time.corSecundaria }}>{time.nome}</h3>
             <div className='colaboradores'>
@@ -18,7 +19,6 @@ const Time = ({ time, colaboradores, aoDeletar }) => {
                 })}
             </div>
         </section>
-
     )
 }
 
